@@ -1,5 +1,13 @@
-import 'package:tugas_week_2/tugas_week_2.dart' as tugas_week_2;
+import 'dart:io';
 
-void main(List<String> arguments) {
-  print('Hello world: ${tugas_week_2.calculate()}!');
+double _readNumber(String label) {
+  while (true) {
+    stdout.write('$label: ');
+    final input = stdin.readLineSync();
+    if (input == null) continue;
+    final value = double.tryParse(input.trim());
+    if (value != null) return value;
+    print('Input tidak valid. Masukkan angka.');
+  }
 }
+
