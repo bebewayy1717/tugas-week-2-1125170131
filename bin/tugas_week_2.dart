@@ -11,3 +11,44 @@ double _readNumber(String label) {
   }
 }
 
+void main() {
+  while (true) {
+    print('\n=== Kalkulator Sederhana ===');
+    print('1) Tambah');
+    print('2) Kurang');
+    print('3) Kali');
+    print('4) Bagi');
+    print('5) Keluar');
+    stdout.write('Pilih [1-5]: ');
+    final pilih = stdin.readLineSync()?.trim();
+
+    if (pilih == '5') {
+      print('Bye!');
+      return;
+    }
+
+    final a = _readNumber('Masukkan angka pertama');
+    final b = _readNumber('Masukkan angka kedua');
+
+    switch (pilih) {
+      case '1':
+        print('Hasil: ${a + b}');
+        break;
+      case '2':
+        print('Hasil: ${a - b}');
+        break;
+      case '3':
+        print('Hasil: ${a * b}');
+        break;
+      case '4':
+        if (b == 0) {
+          print('Tidak bisa dibagi dengan nol!');
+        } else {
+          print('Hasil: ${a / b}');
+        }
+        break;
+      default:
+        print('Pilihan tidak dikenal.');
+    }
+  }
+}
